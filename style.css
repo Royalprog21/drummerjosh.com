@@ -430,8 +430,8 @@ button:hover{
 /* HOME BUTTON */
 .homeBtn{
     position: fixed;
-    top: 30px;
-    right: 30px;
+    top: 35px;
+    right: 35px;
     border: moccasin;
     border-radius: 7px;
     background-color: moccasin;
