@@ -427,6 +427,18 @@ button:hover{
     top: 60px;
     max-width: fit-content;
 }
+/* HOME BUTTON */
+.homeBtn{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    border: moccasin;
+    border-radius: 7px;
+    background-color: moccasin;
+    width: 80px;
+    height: 30px;
+    z-index: 10;
+}
 .moreContainer{
     max-height: fit-content;
     background-color:  rgb(240, 237, 233);
