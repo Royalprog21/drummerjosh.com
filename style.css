@@ -405,13 +405,15 @@ button:hover{
     align-items: center;
     gap: 20px;
     z-index: 10;
-    /* background-color: white; */
-    width: 95%;
+    background-color: rgb(240, 237, 233);
+    width: 96.5%;
     padding: 13px;
-    border-radius: 10px;
+    border-radius: 12px 12px 0 0;
     object-position: center;
     object-fit: cover;
-    left: 30px;
+    /* left: 30px; */
+    border-bottom: grey solid 2px;
+    top: 2px;
 }
 .profile img{
     border-radius: 50%;
@@ -427,11 +429,12 @@ button:hover{
     top: 60px;
     max-width: fit-content;
 }
+
 /* HOME BUTTON */
 .homeBtn{
     position: fixed;
-    top: 35px;
-    right: 35px;
+    top: 30px;
+    right: 30px;
     border: moccasin;
     border-radius: 7px;
     background-color: moccasin;
@@ -551,8 +554,9 @@ footer a:hover {
 /* --- Medium screens (767px and below) --- */
 @media (max-width: 767px) {
   .profile {
-    left: 15px;
+    /* left: 15px; */
     gap: 15px;
+    top: 2px;
   }
 
   .profile img {
@@ -588,77 +592,93 @@ footer a:hover {
 
 
 /* --- Small screens (600px and below) --- */
+
+
+/* --- Small screens (600px and below) --- */
 @media (max-width: 600px) {
   .profile {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 10px;
+    /* center and use fluid width so it decreases with viewport */
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    gap: 8px;
-    padding: 10px;
+    width: min(96.5%, 520px); /* caps at 520px but shrinks with viewport */
+    max-width: 520px;
+    padding: clamp(8px, 3vw, 12px);
+    gap: clamp(8px, 3vw, 18px);
+    top: 8px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .profile img {
-    width: 85px;
-    height: 85px;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: clamp(50px, 16vw, 85px);
+    height: clamp(50px, 16vw, 85px);
   }
 
   .profile h2 {
-    font-size: 18px;
-    text-align: center;
     position: relative;
-    left: 0;  /* center text */
+    left: 0;
     top: 0;
-  }
-
-  /* Footer stacking */
-  footer {
-    flex-direction: column;
-    /* align-items: left; */
-    text-align: center;
-    padding: 20px;
-  }
-
-  footer .socials {
-    order: 1;
-  }
-
-  footer .contact {
-    order: 2;
-    margin-top: 20px;
-  }
-
-  footer div {
-    width: 100%;
-  }
-
-  footer h2 {
-    font-size: 1.2rem;
-  }
-
-  footer li {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  footer a {
-    display: inline-block;
-    word-break: break-word;
+    font-size: clamp(14px, 3.4vw, 18px);
+    text-align: left;
+    margin: 0;
   }
 }
 
-/* --- Extra small devices (below 400px) --- */
-@media (max-width: 400px) {
-  .profile img {
-    width: 70px;
-    height: 70px;
+/* optional: stack vertically on very small screens */
+@media (max-width: 420px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    padding: 8px;
   }
 
   .profile h2 {
-    font-size: 16px;
+    text-align: center;
+  }
+  .profile img {
+    position: relative;
+    left: 0;
+    left: -160px;
+  }
+  .profile h2 {
+    position: relative;
+    left: 0;
+    left: -70px;
+    top: -50px;
+  }
+}
+
+
+
+/* --- Extra small devices (below 400px) --- */
+@media (max-width: 400px) {
+  .profile{
+    width: 95%;
+    padding: 8px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile img {
+    width: clamp(48px, 18vw, 70px);
+    height: clamp(48px, 18vw, 70px);
+    margin: 0;
+  }
+
+  .profile h2 {
+    font-size: clamp(13px, 4.5vw, 16px);
+    text-align: center;
+    max-width: 95%;
+    margin-top: 4px;
   }
 
   .moreContainer ul li img,
@@ -668,5 +688,39 @@ footer a:hover {
 
   .moreContainer ul li p {
     font-size: 0.9rem;
+  }
+}
+/* Fix for very small screens (380px and below): keep .profile centered and prevent image going off-screen */
+@media (max-width: 380px) {
+  .profile{
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    padding: 8px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .profile img{
+    position: relative;
+    left: 0;
+    margin: 0;
+    width: clamp(44px, 18vw, 64px);
+    height: clamp(44px, 18vw, 64px);
+    border-radius: 50%;
+  }
+
+  .profile h2{
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 6px;
+    font-size: clamp(12px, 4vw, 16px);
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
   }
 }
