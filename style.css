@@ -709,17 +709,15 @@ footer a:hover {
 
   .profile img{
     position: relative;
-    left: 0;
+    left: -100px;
+    top: 7px;
     margin: 0;
-    width: clamp(44px, 18vw, 64px);
-    height: clamp(44px, 18vw, 64px);
-    border-radius: 50%;
   }
 
   .profile h2{
     position: relative;
-    left: 0;
-    top: 0;
+    left: -13px;
+    top: -40px;
     margin-top: 6px;
     font-size: clamp(12px, 4vw, 16px);
     text-align: center;
